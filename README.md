@@ -1,75 +1,27 @@
 # hello-c
 
-A simple hello world with Docker
+---
+title: Use tabs to organize content
+output: html_document
+---
 
-## Building hello-c
+You can turn parallel sections to tabs in `html_document` output.
 
-## title {.tabset .tabset-fade}
-content above tabbed region.
+## Results {.tabset}
 
-### tab Social-Media
+### Plots
 
-tab content Social-Media
+We show a scatter plot in this section.
 
-### tab Contact
-
-tab content  Contact
-
-### tab Revisions
-
-tab content  Revisions
-
-### tab Articles
-
-tab content  Articles
-
-### tab Skills
-
-tab content  Skills
-
-### tab Insights
-
-tab content  Insights
-
-content below tabbed region
-
-With all the files in the same folder, build the container and add the tag hello-c:latest to it. Make sure to copy the dot after latest.
-
-```
-docker build --tag hello-c:latest .
+```{r, fig.dim=c(5, 3)}
+par(mar = c(4, 4, .5, .1))
+plot(mpg ~ hp, data = mtcars, pch = 19)
 ```
 
-You can list all Docker Images installed in your machine with:
+### Tables
 
-```
-docker image ls
-```
+We show the data in this tab.
 
-## Running with Docker run
-
-Launching the Container Image:
-
-```
-docker run -it --rm hello-c:latest
-hello, world!
-```
-
-## Running with docker compose
-
-*docker-compose.yml*
-```
-services:
-  hello-c:
-    image: hello-c:latest
-```
-
-Running Docker Compose App:
-
-```
-docker compose up
-[+] Running 1/1
- ⠿ Container hello-c-hello-c-1  Created                                                                                                                                0.3s
-Attaching to hello-c-hello-c-1
-hello-c-hello-c-1  | hello, world!
-hello-c-hello-c-1  | hello, world!
+```{r}
+head(mtcars)
 ```
